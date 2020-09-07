@@ -1,10 +1,13 @@
 {% extends "encyclopedia/layout.html" %}
 
 {% block title %}
+
     Search results for {{ title }}
+    
 {% endblock %}
 
 {% block body %}
+
     <h1>"{{ title }}" Search results</h1>
     <a>There is no page with the title "{{ title }}"</a>
     <ul>
@@ -13,5 +16,5 @@
             <a href="{% url 'entry' entry %}"><li>{{ entry }}</li></a>
         {% endfor %}
     </ul>
-    
+
 {% endblock %}
