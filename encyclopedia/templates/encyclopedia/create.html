@@ -8,16 +8,17 @@
 
 {% block body %}
 
-    <h1>Create a new page!</h2>
-    <form action="{% url 'create' %}" method="POST">
-        {% csrf_token %}
-        <ul class="messages">
-            {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Save</button>
-    </form>
+        <h1>Create a new page!</h2>
+        <form action="{% url 'create' %}" method="POST">
+            {% csrf_token %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-dark">Save</button>
+        </form>        
+
 
 {% endblock %}

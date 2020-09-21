@@ -5,8 +5,10 @@
 {% endblock %}
 
 {% block body %}
-    {{ content | safe }}
-    <form action="{% url 'edit' title %}" method="GET">
-        <button class="btn btn-primary">Edit Page</a>
-    </form>
+
+        {{ content | safe }}
+        <form action="{% url 'edit' title %}" method="GET">
+            <button class="btn btn-dark">Edit Page</a>
+        </form>
+
 {% endblock %}

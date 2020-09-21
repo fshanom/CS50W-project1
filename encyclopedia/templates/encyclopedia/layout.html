@@ -1,38 +1,74 @@
 {% load static %}
 
 <!DOCTYPE html>
-
 <html lang="en">
+
     <head>
-        <title>{% block title %}{% endblock %}</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+            <title> {% block title %} {% endblock %}</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+            <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
     </head>
+
     <body>
-        <div class="row">
-            <div class="sidebar col-lg-2 col-md-3">
-                <h2>My Wiki</h2>
-                <form action="{% url 'search' %}">
-                    {% csrf_token %}
-                    <input class="search" type="text" name="q" placeholder="Search Encyclopedia">
-                </form>
-                <div>
-                    <a href="{% url 'index' %}">Home</a>
-                </div>
-                <div>
-                    <a href="{% url 'create' %}">Create New Page</a>
-                </div>
-                <div>
-                    <a href="{% url 'random' %}">Random Page</a>
-                </div>
-                {% block nav %}
-                {% endblock %}
+
+        <div class="d-flex" id="wrapper">
+
+            <!-- sidebar menu -->
+            <div class="bg-dark border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading text-light">The Wiki Project</div>
+            <div class="list-group list-group-flush">
+                <a href="{% url 'index' %}" class="list-group-item list-group-item-action bg-dark text-light">Home</a>
+                <a href="{% url 'create' %}" class="list-group-item list-group-item-action bg-dark text-light">Create Page</a>
+                <a href="{% url 'random' %}" class="list-group-item list-group-item-action bg-dark text-light">Random Page</a>
             </div>
-            <div class="main col-lg-10 col-md-9">
+            </div>
+            <!-- /#sidebar-wrapper -->
+
+            <!-- content -->
+            <div id="page-content-wrapper">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button class="btn btn-dark" id="menu-toggle">Menu</button>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}">
+                    {% csrf_token %}
+                    <input class="form-control mr-sm-2" type="search" name="q" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                </div>
+            </nav>
+
+            <div class="container-fluid">
                 {% block body %}
                 {% endblock %}
             </div>
+                </div>
+            <!-- /#page-content-wrapper -->
+
         </div>
+        <!-- /#wrapper -->
+
+        <!-- Bootstrap core JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        <!-- Menu Toggle Script -->
+        <script>
+            $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+            });
+        </script>
 
     </body>
+
 </html>

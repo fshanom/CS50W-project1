@@ -10,6 +10,9 @@ class PageForm(forms.Form):
     title = forms.CharField(label="Title", widget=forms.TextInput(attrs={'class': 'form-control'}))
     content = forms.CharField(label="Content",  widget=forms.Textarea(attrs={'class': 'form-control'}))
 
+class EditForm(PageForm):
+    title = None
+
 def index(request):
     return render(request, "encyclopedia/index.html", {
         "entries": util.list_entries()
@@ -79,9 +82,10 @@ def edit(request, title):
         util.save_entry(title, content)
         return redirect("entry", title=title)
     else:
+        form = EditForm(initial={"content":util.get_entry(title)})
         return render(request, "encyclopedia/edit.html", {
             'title' : title,
-            'content' : util.get_entry(title)
+            'form' : form
         })    
 
 #load a random page

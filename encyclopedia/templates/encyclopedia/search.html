@@ -8,13 +8,19 @@
 
 {% block body %}
 
-    <h1>"{{ title }}" Search results</h1>
-    <a>There is no page with the title "{{ title }}"</a>
-    <ul>
-       <h2>Similar results:</h2>
-        {% for entry in entries %}
-            <a href="{% url 'entry' entry %}"><li>{{ entry }}</li></a>
-        {% endfor %}
-    </ul>
+    <div>
+        <h1>"{{ title }}" Search results</h1>
+        <a>There is no page with the title "{{ title }}"</a>
+    </div>
+    
+    <div>
+        <h2>Similar results:</h2>
+        <ul>
+            {% for entry in entries %}
+                <a class="index-items" href="{% url 'entry' entry %}"><li>{{ entry }}</li></a>
+            {% endfor %}
+        </ul>    
+    </div>
+    
 
 {% endblock %}

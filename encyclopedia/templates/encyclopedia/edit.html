@@ -7,12 +7,13 @@
 {% endblock %}
 
 {% block body %}
+        <h1>Edit page "{{ title }}"</h1>
 
-    <h1>Edit page "{{ title }}"</h1>
-    <form action="{% url 'edit' title %}" method="POST">
-        {% csrf_token %}
-        <textarea class="form-control" name="content" rows="3">{{ content }}</textarea>
-        <button type="submit" class="btn btn-primary">Save</button>
-    </form>
-    
+        <form action="{% url 'edit' title %}" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            
+            <button type="submit" class="btn btn-dark">Save</button>
+        </form>
+
 {% endblock %}
