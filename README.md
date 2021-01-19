@@ -30,12 +30,13 @@ python3 manage.py runserver
 On the application, you have 3 main pages:
 * Home - shows all the entries on the application.
 
-![Home](./screenshots/home.jpg)
+![Home](https://github.com/fshanom/project1/blob/master/screenshots/home.JPG?raw=true)
+
 * Create page - create a new entry using Django forms.
 
-![Create Page](./screenshots/createpage.jpg)
+![Create Page](https://github.com/fshanom/project1/blob/master/screenshots/createpage.JPG?raw=true)
 * Random page - opens a random entry page.
 
-![Random Page](./screenshots/randompage.jpg)
+![Random Page](https://github.com/fshanom/project1/blob/master/screenshots/randompage.JPG?raw=true)
 
 MIT © Filipe Shanom
