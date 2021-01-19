@@ -4,9 +4,6 @@ This is a Wikipedia-based application build in Python, with the framework Django
 ## Motivation
 This project was built for learning purposes, by demand of the course CS50W from HarvardX. In this course, I've learned the basics of Web Development using Python's Django framework and Javascript.
 
-## Screenshots
-Include logo/demo screenshot etc.
-
 ## Tech/framework used
 Built with:
 * Python: version 3.8.5
@@ -28,10 +25,17 @@ After cloning the repository on your local machine, and with the resources prope
 ```
 python3 manage.py runserver
 ```
+
 ## Pages
 On the application, you have 3 main pages:
 * Home - shows all the entries on the application.
+
+![Home](./screenshots/home.jpg)
 * Create page - create a new entry using Django forms.
+
+![Create Page](./screenshots/createpage.jpg)
 * Random page - opens a random entry page.
+
+![Random Page](./screenshots/randompage.jpg)
 
 MIT © Filipe Shanom
